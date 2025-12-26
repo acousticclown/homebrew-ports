@@ -5,21 +5,21 @@
 class Ports < Formula
   desc "Beautiful CLI to list, check and kill running ports"
   homepage "https://github.com/acousticclown/ports"
-  version "0.1.7"
+  version "1.0.0"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/acousticclown/ports/releases/download/v0.1.7/ports_0.1.7_darwin_amd64.tar.gz"
-      sha256 "de13eabf8280e04efb57586923dfd2006c2249fbd5157e7d4fbe6081b445bcec"
+      url "https://github.com/acousticclown/ports/releases/download/v1.0.0/ports_1.0.0_darwin_amd64.tar.gz"
+      sha256 "f72f36a2e8d398ac2ec0fe8ce94981daa26f1cfa78246fb93a609c98d6ac648e"
 
       def install
         bin.install "ports"
       end
     end
     on_arm do
-      url "https://github.com/acousticclown/ports/releases/download/v0.1.7/ports_0.1.7_darwin_arm64.tar.gz"
-      sha256 "bb725ecce48a71f8dfe7327aa99250bd649e370b963945392d83e99754c6e7d7"
+      url "https://github.com/acousticclown/ports/releases/download/v1.0.0/ports_1.0.0_darwin_arm64.tar.gz"
+      sha256 "9fbbe3c48735f96a893c6f59723780d0f30ce77ea36fc5f24ec23e9ba389e7bd"
 
       def install
         bin.install "ports"
@@ -30,8 +30,8 @@ class Ports < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/acousticclown/ports/releases/download/v0.1.7/ports_0.1.7_linux_amd64.tar.gz"
-        sha256 "51a30458e92a6bd7bab74fb1c89cbb0e2ec6a66ddb6783884ef537351afe8806"
+        url "https://github.com/acousticclown/ports/releases/download/v1.0.0/ports_1.0.0_linux_amd64.tar.gz"
+        sha256 "dba171d95d73f7fd081544073340ac150ef42ea0e51dc12abb3981e3f82f0485"
 
         def install
           bin.install "ports"
@@ -40,18 +40,13 @@ class Ports < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/acousticclown/ports/releases/download/v0.1.7/ports_0.1.7_linux_arm64.tar.gz"
-        sha256 "4d14b5c3dbf0840501c24fe35641092012e5f86f7d32a30310de4c04d37ae0f2"
+        url "https://github.com/acousticclown/ports/releases/download/v1.0.0/ports_1.0.0_linux_arm64.tar.gz"
+        sha256 "e9b06ffbc9c4f34d6533e83a4f0f33f8112ad4348ce4df2ffadd376f5e1f7205"
 
         def install
           bin.install "ports"
         end
       end
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 end
