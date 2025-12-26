@@ -5,21 +5,21 @@
 class Ports < Formula
   desc "Beautiful CLI to list, check and kill running ports"
   homepage "https://github.com/acousticclown/ports"
-  version "0.1.1"
+  version "0.1.5"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/acousticclown/ports/releases/download/v0.1.1/ports_0.1.1_darwin_amd64.tar.gz"
-      sha256 "788fc97d6d7c55660ae2a44404eba548bb0f76714552668fcce78946ed8f6b56"
+    on_intel do
+      url "https://github.com/acousticclown/ports/releases/download/v0.1.5/ports_0.1.5_darwin_amd64.tar.gz"
+      sha256 "640bd7a06e5fbd0dd2437df22123f45c7d0c1163bd7cefd98681d2063d16f55c"
 
       def install
         bin.install "ports"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/acousticclown/ports/releases/download/v0.1.1/ports_0.1.1_darwin_arm64.tar.gz"
-      sha256 "5b29ec99ca81284c3520e9b602fb457b50c0e1632e98e7081c24794b3d1060c0"
+    on_arm do
+      url "https://github.com/acousticclown/ports/releases/download/v0.1.5/ports_0.1.5_darwin_arm64.tar.gz"
+      sha256 "5378ff308f1e25d60b184b902356d36b06351da3022daf053a69457a20b3b236"
 
       def install
         bin.install "ports"
@@ -28,18 +28,24 @@ class Ports < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/acousticclown/ports/releases/download/v0.1.1/ports_0.1.1_linux_amd64.tar.gz"
-      sha256 "7d6169d2b996c9f767009eff961d1b38803dd89c429969dde122cc006e3b1cd4"
-      def install
-        bin.install "ports"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/acousticclown/ports/releases/download/v0.1.5/ports_0.1.5_linux_amd64.tar.gz"
+        sha256 "d278dc781f16fdd39af7836029763930cf39b234f291a9416cfec3de6d583017"
+
+        def install
+          bin.install "ports"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/acousticclown/ports/releases/download/v0.1.1/ports_0.1.1_linux_arm64.tar.gz"
-      sha256 "e97539b661fd0fce9e648b7bfd39809fed3adf8e022d3829bc852a8db7b38661"
-      def install
-        bin.install "ports"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/acousticclown/ports/releases/download/v0.1.5/ports_0.1.5_linux_arm64.tar.gz"
+        sha256 "8d71ec070000def5ae8fdc0e445075d8797a16ca3b9325db13c8e1ea34c6b42e"
+
+        def install
+          bin.install "ports"
+        end
       end
     end
   end
