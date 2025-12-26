@@ -49,4 +49,9 @@ class Ports < Formula
       end
     end
   end
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 end
